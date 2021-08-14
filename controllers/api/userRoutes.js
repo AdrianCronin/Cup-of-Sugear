@@ -37,4 +37,13 @@ router.put('/update/:id', async (req, res) => {
     };
 });
 
+// delete user route
+router.delete('/delete/:id', async (req, res) => {
+    try {
+        res.json(`Reached path: http://localhost:3001/api/users${req.path} `);
+    } catch (err) {
+        res.status(500).json(err);
+    };
+});
+
 module.exports = router;

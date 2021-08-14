@@ -1,0 +1,14 @@
+[
+    {
+        "id":1,
+        "category":"home"
+    },
+    {
+        "id":2,
+        "category":"sports"
+    },
+    {
+        "id":3,
+        "category":"lawn"
+    }
+]

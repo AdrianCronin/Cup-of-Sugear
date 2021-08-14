@@ -19,4 +19,22 @@ router.get('/:id', async (req, res) => {
     };
 });
 
+// update item put route
+router.put('/update/:id', async (req, res) => {
+    try {
+        res.json(`Reached path: http://localhost:3001/api/items${req.path} `);
+    } catch (err) {
+        res.status(500).json(err);
+    };
+});
+
+// delete item route
+router.delete('/delete/:id', async (req, res) => {
+    try {
+        res.json(`Reached path: http://localhost:3001/api/items${req.path} `);
+    } catch (err) {
+        res.status(500).json(err);
+    };
+});
+
 module.exports = router;

@@ -1,0 +1,30 @@
+[
+    {
+        "id":1,
+        "first_name":"John",
+        "last_name":"Smith",
+        "email":"john.smith@email.com",
+        "password":"password123"
+    },
+    {
+        "id":2,
+        "first_name":"Jane",
+        "last_name":"Smith",
+        "email":"jane.smith@email.com",
+        "password":"password123"
+    },
+    {
+        "id":3,
+        "first_name":"Harry",
+        "last_name":"Potter",
+        "email":"harry.potter@email.com",
+        "password":"password123"
+    },
+    {
+        "id":4,
+        "first_name":"Luke",
+        "last_name":"Skywalker",
+        "email":"luke.skywalker@email.com",
+        "password":"password123"
+    }
+]

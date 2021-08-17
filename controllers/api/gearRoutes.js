@@ -1,13 +1,13 @@
 const router = require('express').Router();
 const { Gear } = require('../../models');
 
-// find all gear
+// find all owned gear for the current user
 router.get('/', async (req, res) => {
     try {
-        const gearData = await Gear.findAll();
-        const gear = gearData.map((item) => item.get({plain: true}));
+        const ownedGearData = await Gear.findAll();
+        const ownedGear = ownedGearData.map((item) => item.get({plain: true}));
 
-        res.status(200).json(gear);
+        res.status(200).json(ownedGear);
     } catch (err) {
         res.status(500).json(err);
     };

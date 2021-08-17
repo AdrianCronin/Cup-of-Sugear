@@ -4,7 +4,10 @@ const { Category } = require('../../models');
 // find all categories
 router.get('/', async (req, res) => {
     try {
-        res.json(`Reached path: http://localhost:3001/api/categories${req.path} `);
+        const categoryData = await Category.findAll();
+        const categories = categoryData.map((category) => category.get({ plain: true }));
+
+        res.status(200).json(categories);
     } catch (err) {
         res.status(500).json(err);
     };
@@ -13,7 +16,10 @@ router.get('/', async (req, res) => {
 // find a category by id
 router.get('/:id', async (req, res) => {
     try {
-        res.json(`Reached path: http://localhost:3001/api/categories${req.path} `);
+        const categoryData = await Category.findByPk(req.params.id);
+        const category = categoryData.get({plain: true});
+
+        res.status(200).json(category);
     } catch (err) {
         res.status(500).json(err);
     };

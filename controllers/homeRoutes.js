@@ -1,12 +1,14 @@
-const { models} = require('../models');
+const { models, Category } = require('../models');
 const router = require('express').Router();
 
 // homepage route
 // Categories displayed
 router.get('/', async (req, res) => {
     try {
-        res.json(`Reached path: http://localhost:3001${req.path} `);
-        // res.render('homepage');
+        const categoryData = await Category.findAll();
+        const categories = categoryData.map((category) => category.get({ plain: true }));
+        res.status(200).json(categories);
+        // res.render('homepage', {categories});
     } catch (err) {
         res.status(500).json(err);
     };

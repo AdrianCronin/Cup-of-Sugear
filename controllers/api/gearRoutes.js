@@ -10,7 +10,7 @@ router.get('/mygear', async (req, res) => {
         });
         const gear = gearData.map((item) => item.get({plain: true}));
 
-        res.status(200).json(gear);
+        res.render('mygear', {gear});
     } catch (err) {
         res.status(500).json(err);
     };

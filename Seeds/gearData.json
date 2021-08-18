@@ -3,60 +3,70 @@
         "id":1,
         "name":"Push Lawn Mower",
         "description":"Manual push mower. Blades are sharp!",
-        "category_id": 3
+        "category_id": 3,
+        "user_id": 1
     },
     {
         "id":2,
         "name":"Motorized Lawn Mower",
         "description":"Gas powered lawn mower. Does the job.",
-        "category_id": 3
+        "category_id": 3,
+        "user_id": 2
     },
     {
         "id":3,
         "name":"Hedge Trimmers",
         "description":"Large set of hedge trimmers. Good for small trees, large hedges, etc.",
-        "category_id": 3
+        "category_id": 3,
+        "user_id": 3
     },
     {
         "id":4,
         "name":"Goal Posts",
         "description":"Set up a soccer field in your backyard. Two sets of goal posts, requires minimal set up.",
-        "category_id": 2
+        "category_id": 2,
+        "user_id": 4
     },
     {
         "id":5,
         "name":"Snowboard",
         "description":"For teenaged boys. Banged up but works great. Requires your own boots.",
-        "category_id": 2
+        "category_id": 2,
+        "user_id": 1
     },
     {
         "id":6,
         "name":"Medium Camping Tent",
         "description":"Medium sized pole tent. Sleeps 3 comfortably. Comes in a bag, has instrucitons.",
-        "category_id": 2
+        "category_id": 2,
+        "user_id": 3
     },
     {
         "id":7,
         "name":"Breadmaker",
         "description":"Automatic breadmaker. Makes medium sized loaf. Comes with recipe book and instructions.",
-        "category_id": 1
+        "category_id": 1,
+        "user_id": 2
     },
     {
         "id":8,
         "name":"Cordless Skill Saw",
         "description":"Cordless circular skill saw. Small/Medium jobs. Comes with blades and spare battery.",
-        "category_id": 1
+        "category_id": 1,
+        "user_id": 4
     },
     {
         "id":9,
         "name":"Chafing Dish Set",
         "description":"Set of three chafing dishes. Perfect for outdoor parties.",
-        "category_id": 1
+        "category_id": 1,
+        "user_id": 1
     },
     {
         "id":10,
         "name":"Cup of Sugar",
         "description":"Just a cup of granulated sugar.",
-        "category_id": 1
+        "category_id": 1,
+        "user_id": 2
     }
 ]

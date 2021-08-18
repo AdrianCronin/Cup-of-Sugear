@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Category } = require('../../models');
+const { Category, Gear } = require('../../models');
 
 // find all categories
 router.get('/', async (req, res) => {
@@ -16,10 +16,17 @@ router.get('/', async (req, res) => {
 // find a category by id
 router.get('/:id', async (req, res) => {
     try {
-        const categoryData = await Category.findByPk(req.params.id);
-        const category = categoryData.get({plain: true});
+        const gearData = await Gear.findAll({
+            where: { category_id: req.params.id },
+            include: [{
+                model: Category,
+                attributes: ['category']
+            }]
+        });
 
-        res.status(200).json(category);
+        const gear = gearData.map((item)=>item.get({ plain: true }));
+
+        res.render('browse', {gear});
     } catch (err) {
         res.status(500).json(err);
     };

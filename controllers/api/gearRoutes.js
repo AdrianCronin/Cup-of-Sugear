@@ -1,12 +1,12 @@
 const router = require('express').Router();
 const { Gear } = require('../../models');
 
-// find all gear for a user simulating logic using route params
+// find all gear for a user simulating logic using random generated user id
 // TODO: add logic that finds the currently signed in user's gear
-router.get('/user/:id', async (req, res) => {
+router.get('/mygear', async (req, res) => {
     try {
         const gearData = await Gear.findAll({
-            where: { user_id: req.params.id}
+            where: { user_id: Math.floor(Math.random() * 4) + 1}
         });
         const gear = gearData.map((item) => item.get({plain: true}));
 

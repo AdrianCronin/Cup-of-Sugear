@@ -1,3 +1,4 @@
+{{!-- logged out navbar --}}
 <header class=" p-2">
   <nav class="d-flex justify-content-between align-center">
     <div>
@@ -20,6 +21,7 @@
   </nav>
 </header>
 
+{{!-- Hero Bar --}}
 <div class="px-4 py-5 my-5 text-center">
   <h1 class="display-5 fw-bold">Welcome to Cup of Sugar</h1>
   <div class="col-lg-6 mx-auto">
@@ -27,22 +29,18 @@
   </div>
 </div>
 
+{{!-- category container --}}
 <main class="container container-fluid mt-5">
   <div class="d-flex flex-wrap row justify-content-between">
 
+    {{!-- category box template --}}
+    {{#each categories as |category|}}
     <div class="card col-3 m-2">
-      <h3>Home Goods</h3>
-      <p>description</p>
+      <a href="/api/categories/{{category.id}}" class="text-decoration-none">
+        <h3>{{category.category}}</h3>
+        <p>description</p>
+      </a>
     </div>
-
-    <div class="card col-3 m-2">
-      <h3>Lawn and Landscaping</h3>
-      <p>description</p>
-    </div>
-
-    <div class="card col-3 m-2">
-      <h3>Sports and Recreation</h3>
-      <p>description</p>
-    </div>
+    {{/each}}
 
 </main>

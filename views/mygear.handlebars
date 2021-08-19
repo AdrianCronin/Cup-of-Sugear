@@ -40,33 +40,14 @@
 <h2 class="text-primary m-2">Borrowing Items</h2>
 <div class="container container-fluid mt-5 ">
     <div class="d-flx flex-wrap row">
+    {{#each borrowedGear as |gear|}}
         <div class="card col-3 border-primary m-2">
-            <h3>Item</h3>
-            <p>Description: </p>
+            <h3>Item: {{gear.gear_name}}</h3>
+            <p>Description: {{gear.description}}</p>
             <p>Due date: </p>
-            <p>Owner: Name</p>
+            <p>Owner: {{gear.owner_name}}</p>
             <a>Return Item</a>
         </div>
-        <div class="card col-3 border-primary m-2">
-            <h3>Item</h3>
-            <p>Description: </p>
-            <p>Due date: </p>
-            <p>Owner: Name</p>
-            <a>Return Item</a>
-        </div>
-        <div class="card col-3 border-primary m-2">
-            <h3>Item</h3>
-            <p>Description: </p>
-            <p>Due date: </p>
-            <p>Owner: Name</p>
-            <a>Return Item</a>
-        </div>
-        <div class="card col-3 border-primary m-2">
-            <h3>Item</h3>
-            <p>Description: </p>
-            <p>Due date: </p>
-            <p>Owner: Name</p>
-            <a>Return Item</a>
-        </div>
+    {{/each}}
     </div>
 </div>

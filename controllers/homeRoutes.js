@@ -1,5 +1,6 @@
 // const { models} = require('../models');
 const router = require('express').Router();
+const withAuth = require('../Utils/auth');
 
 // homepage route
 // Categories displayed

@@ -6,7 +6,7 @@ const Borrow = require('./Borrow');
 //join user to gear
 User.hasMany(Gear, {
     foreignKey: 'user_id',
-    onDelete: 'SET NULL'
+    onDelete: 'CASCADE'
 });
 Gear.belongsTo(User, {
     foreignKey: 'user_id'

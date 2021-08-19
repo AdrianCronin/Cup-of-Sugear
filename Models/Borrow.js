@@ -20,7 +20,7 @@ Borrow.init(
     },
     user_id: {
       type: DataTypes.INTEGER,
-      //FOREIGN KEY: References Owner PK id 
+      //FOREIGN KEY: References Borrower PK id 
       references: {
         model: 'user',
         key: 'id',

@@ -18,6 +18,7 @@ Borrow.init(
     date_in: {
       type: DataTypes.DATE,
     },
+    // this is the borrower's id
     user_id: {
       type: DataTypes.INTEGER,
       //FOREIGN KEY: References Borrower PK id 

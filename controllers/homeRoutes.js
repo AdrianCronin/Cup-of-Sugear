@@ -1,4 +1,4 @@
-// const { models} = require('../models');
+const { models, Category } = require('../models');
 const router = require('express').Router();
 const withAuth = require('../Utils/auth');
 
@@ -6,8 +6,11 @@ const withAuth = require('../Utils/auth');
 // Categories displayed
 router.get('/', async (req, res) => {
     try {
-        // res.json(`Reached path: http://localhost:3001${req.path} `);
-        res.render('homepage');
+        const categoryData = await Category.findAll();
+        const categories = categoryData.map((category) => category.get({ plain: true }));
+
+        // TODO: PASS LOGGED_IN VARIABLE TO HOMEPAGE
+        res.render('homepage', {categories});
     } catch (err) {
         res.status(500).json(err);
     };

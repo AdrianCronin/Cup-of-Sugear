@@ -1,3 +1,4 @@
+{{!-- navbar --}}
 <nav class="d-flex justify-content-end">
     <ul class="nav">
         <li class="nav-item">
@@ -12,44 +13,30 @@
     </ul>
 </nav>
 
+{{!-- my gear container --}}
 <h2 class="text-primary m-2">My Gear</h2>
 <div class="container container-fluid mt-5">
     <div class="d-flx flex-wrap row">
+
+        {{!-- gear card template --}}
+        {{#each gear as |item|}}
         <div class="card col-3 border-primary m-2">
-            <h3>Item</h3>
-            <p>Description: </p>
-            <p>Due date: </p>
-            <p>Borrower: Name</p>
-            <a>Edit Item</a>
-            <a>Delete</a>
+            <div class="card-body">
+                <h3>{{item.name}}</h3>
+                <p>{{item.description}}</p>
+                <p>Due date: </p>
+                <p>Borrower: Name</p>
+                <a>Edit Item</a>
+                <a>Delete</a>
+            </div>
         </div>
-        <div class="card col-3 border-primary m-2">
-            <h3>Item</h3>
-            <p>Description: </p>
-            <p>Due date: </p>
-            <p>Borrower: Name</p>
-            <a>Edit Item</a>
-            <a>Delete</a>
-        </div>
-        <div class="card col-3 border-primary m-2">
-            <h3>Item</h3>
-            <p>Description: </p>
-            <p>Due date: </p>
-            <p>Borrower: Name</p>
-            <a>Edit Item</a>
-            <a>Delete</a>
-        </div>
-        <div class="card col-3 border-primary m-2">
-            <h3>Item</h3>
-            <p>Description: </p>
-            <p>Due date: </p>
-            <p>Borrower: Name</p>
-            <a>Edit Item</a>
-            <a>Delete</a>
-        </div>
+        {{/each}}
     </div>
 </div>
+
 <br>
+
+{{!-- Borrowed Gear --}}
 <h2 class="text-primary m-2">Borrowing Items</h2>
 <div class="container container-fluid mt-5 ">
     <div class="d-flx flex-wrap row">

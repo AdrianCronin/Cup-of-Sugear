@@ -35,9 +35,6 @@
           <a class="nav-link" href="#">MyGear</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Logout</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="#">Add Gear</a>
         </li>
         <li class="nav-item">
@@ -70,10 +67,12 @@
 
   {{{body}}}
 
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
 </body>
 
 <footer>
 </footer>
-<script src="/js/logout.js"></script>
 
 </html>

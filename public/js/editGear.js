@@ -24,6 +24,7 @@ const editGearFormHandler = async (event) => {
 };
 
 const deleteGearHandler = async (event) => {
+    event.preventDefault();
     const gear_id = document.querySelector('#editGearForm').dataset.gear_id;
 
     const response = await fetch(`/api/gear/delete/${gear_id}`, {

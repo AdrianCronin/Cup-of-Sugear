@@ -81,28 +81,32 @@ router.post('/logout', (req, res) => {
     }
   });
 
-// login post route
-router.post('/logout', async (req, res) => {
-    try {
-        res.json(`Reached path: http://localhost:3001/api/users${req.path} `);
-    } catch (err) {
-        res.status(500).json(err);
-    };
-});
-
 // update user's password put route
-router.put('/update/:id', async (req, res) => {
-    try {
-        res.json(`Reached path: http://localhost:3001/api/users${req.path} `);
-    } catch (err) {
-        res.status(500).json(err);
-    };
+router.put('/edituser', async (req, res) => {
+    // try {
+        // res.json(`Reached path: http://localhost:3001/api/users${req.path} `);
+        
+      // req.body.password = await bcrypt.hash(req.body.password, 10);
+
+      // console.log('###########updated pass is ', req.body.password);
+ 
+       const updatedUserData = await User.update(req.body.password, {
+          where: {
+            id: req.session.user_id
+          }
+        });
+
+      //   res.status(200).message('Password successfully updated.');
+    // } catch (err) {
+    //     res.status(500).json(err);
+    // };
 });
 
 // delete user route
 router.delete('/delete/:id', async (req, res) => {
     try {
-        res.json(`Reached path: http://localhost:3001/api/users${req.path} `);
+        res.json(`Path: http://localhost:3001/api/users${req.path}. Access denied.`);
+
     } catch (err) {
         res.status(500).json(err);
     };

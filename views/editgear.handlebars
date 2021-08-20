@@ -7,11 +7,11 @@
             </div>
             <div class="card-body bg-secondary">
 
-                <form id="editForm" data-post_id="{{gear.id}}">
+                <form id="editGearForm" data-gear_id="{{gear.id}}">
 
                     <div class="mb-3">
-                        <label for="editPostTitle" class="form-label text-white">Title</label>
-                        <input type="text" class="form-control" id="editPostTitle" value="{{gear.name}}">
+                        <label for="editGearName" class="form-label text-white">Title</label>
+                        <input type="text" class="form-control" id="editGearName" value="{{gear.name}}">
                     </div>
 
                     <div class="mb-3">
@@ -33,41 +33,5 @@
         </div>
     </div>
 </div>
-
-<!-- Modal -->
-{{!-- <div class="modal-dialog">
-    <div class="modal-content">
-
-        <div class="modal-header">
-            <h5 class="modal-title" id="editGearModal">Edit Gear</h5>
-        </div>
-
-        <div class="modal-body">
-            <form id="editGearSubmit">
-
-                <div class="mb-3">
-                    <label class="form-label">Name:</label>
-                    <input type="text" class="form-control" id="gearName" name="gearName" placeholder="{{gear.name}}"
-                        value="{{gear.name}}">
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Description</label>
-                    <input type="text" class="form-control" id="gearDescription" name="gearDescription"
-                        placeholder="{{gear.description}}" value="{{gear.description}}" />
-                </div>
-
-                <select class="form-select mb-3" aria-label="Select Category" id="selectCategory">
-                    {{#each categories as |category|}}
-                    <option value="{{category.id}}">{{category.category}}</option>
-                    {{/each}}
-                </select>
-
-                <button type="submit" class="btn btn-primary float-end">Submit</button>
-            </form>
-        </div>
-
-    </div>
-</div> --}}
 
 <script src="/js/editgear.js"></script>

@@ -73,7 +73,14 @@ router.get('/:id', async (req, res) => {
 // update gear route
 router.put('/update/:id', async (req, res) => {
     try {
-        res.json(`Reached path: http://localhost:3001/api/gear${req.path} `);
+        // res.json(`Reached path: http://localhost:3001/api/gear${req.path} `);
+        const gear = await Gear.update(req.body, {
+            where: {
+                id: req.params.id,
+            },
+        });
+
+        res.status(200).json(gear);
     } catch (err) {
         res.status(500).json(err);
     };

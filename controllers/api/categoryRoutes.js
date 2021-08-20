@@ -26,7 +26,12 @@ router.get('/:id', async (req, res) => {
 
         const gear = gearData.map((item)=>item.get({ plain: true }));
 
-        res.render('browse', {gear});
+        res.render('browse', {
+            gear,
+            logged_in: req.session.logged_in,
+            browse: true,
+            category: gear[0].category.category
+        });
     } catch (err) {
         res.status(500).json(err);
     };

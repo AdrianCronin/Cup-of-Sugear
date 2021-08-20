@@ -54,8 +54,8 @@
                 <p>{{item.description}}</p>
                 <p>Due date: </p>
                 <p>Borrower: Name</p>
-                <a>Edit Item</a>
-                <a>Delete</a>
+                {{!-- edit gear button --}}
+                <a href="/api/gear/update/{{item.id}}"><button id="editBtn" type="button" class="btn btn-secondary">Edit</button></a>
             </div>
         </div>
         {{/each}}
@@ -80,4 +80,4 @@
     </div>
 </div>
 
-<script src="/js/newGear.js"></script>
+<script src="/js/gear.js"></script>

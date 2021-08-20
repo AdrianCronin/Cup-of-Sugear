@@ -1,0 +1,73 @@
+{{!-- edit post form --}}
+<div class="container">
+    <div class="col">
+        <div class="card h-100 bg-dark">
+            <div class="card-header bg-primary">
+                <h4 class="card-title text-white">Edit Gear</h4>
+            </div>
+            <div class="card-body bg-secondary">
+
+                <form id="editForm" data-post_id="{{gear.id}}">
+
+                    <div class="mb-3">
+                        <label for="editPostTitle" class="form-label text-white">Title</label>
+                        <input type="text" class="form-control" id="editPostTitle" value="{{gear.name}}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="editGearDescription" class="form-label text-white">Description</label>
+                        <textarea class="form-control" id="editGearDescription" rows="3">{{gear.description}}</textarea>
+                    </div>
+
+                    <select class="form-select mb-3" aria-label="Select Category" id="selectCategory">
+                        {{#each categories as |category|}}
+                        <option value="{{category.id}}">{{category.category}}</option>
+                        {{/each}}
+                    </select>
+
+                    <button class="w-100 btn btn-lg btn-primary mb-1" type="submit">Save</button>
+                </form>
+
+                <button class="w-100 btn btn-lg btn-primary" type="click" id="deletePostBtn">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+{{!-- <div class="modal-dialog">
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <h5 class="modal-title" id="editGearModal">Edit Gear</h5>
+        </div>
+
+        <div class="modal-body">
+            <form id="editGearSubmit">
+
+                <div class="mb-3">
+                    <label class="form-label">Name:</label>
+                    <input type="text" class="form-control" id="gearName" name="gearName" placeholder="{{gear.name}}"
+                        value="{{gear.name}}">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Description</label>
+                    <input type="text" class="form-control" id="gearDescription" name="gearDescription"
+                        placeholder="{{gear.description}}" value="{{gear.description}}" />
+                </div>
+
+                <select class="form-select mb-3" aria-label="Select Category" id="selectCategory">
+                    {{#each categories as |category|}}
+                    <option value="{{category.id}}">{{category.category}}</option>
+                    {{/each}}
+                </select>
+
+                <button type="submit" class="btn btn-primary float-end">Submit</button>
+            </form>
+        </div>
+
+    </div>
+</div> --}}
+
+<script src="/js/editgear.js"></script>

@@ -79,10 +79,40 @@ router.put('/update/:id', async (req, res) => {
     };
 });
 
+// update gear view
+router.get('/update/:id', async (req, res) => {
+    try {
+
+        // find the gear item
+        const gearData = await Gear.findByPk(req.params.id);
+        const gear = gearData.get({ plain: true });
+
+        // get categories to use in edit gear form
+        const categoryData = await Category.findAll();
+        const categories = categoryData.map((category) => category.get({ plain: true }));
+
+        res.render('editgear', {
+            gear,
+            categories,
+            logged_in: req.session.logged_in,
+        });
+        // res.json(`Reached path: http://localhost:3001/api/gear${req.path} `);
+    } catch (err) {
+        res.status(500).json(err);
+    };
+});
+
 // delete gear route
 router.delete('/delete/:id', async (req, res) => {
     try {
-        res.json(`Reached path: http://localhost:3001/api/gear${req.path} `);
+        // res.json(`Reached path: http://localhost:3001/api/gear${req.path} `);
+        const gearData = await Gear.destroy({
+            where: {
+                id: req.params.id,
+            },
+        });
+
+        res.status(200).json(gearData);
     } catch (err) {
         res.status(500).json(err);
     };

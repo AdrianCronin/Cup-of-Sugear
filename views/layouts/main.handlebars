@@ -20,7 +20,10 @@
   {{#if logged_in}}
   {{!-- navbar --}}
   <header class=" p-2">
-    <nav class="d-flex justify-content-end">
+    <nav class="d-flex justify-content-between">
+      <div>
+        <h2>Welcome, {{full_name}}</h2>
+      </div>
       <ul class="nav">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Lawn & Garden</a>
@@ -41,7 +44,7 @@
           <a class="nav-link" href="#">Browse</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Logout</a>
+          <a class="nav-link" href="/" id="logout">Logout</a>
         </li>
       </ul>
     </nav>

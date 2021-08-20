@@ -9,7 +9,11 @@ router.get('/', async (req, res) => {
         const categoryData = await Category.findAll();
         const categories = categoryData.map((category) => category.get({ plain: true }));
 
-        res.render('homepage', {categories, logged_in: req.session.logged_in});
+        res.render('homepage', {
+            categories,
+            logged_in: req.session.logged_in,
+            full_name: req.session.full_name
+        });
     } catch (err) {
         res.status(500).json(err);
     };

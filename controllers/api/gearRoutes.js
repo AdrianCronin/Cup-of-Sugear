@@ -15,7 +15,8 @@ router.get('/mygear', async (req, res) => {
 
         const borrowedResults = await sequelize.query(`
         SELECT 
-            borrow.id, borrow.date_out, borrow.date_in, borrow.user_id as borrower_id, borrow.gear_id, gear.name AS gear_name, gear.description, gear.user_id as owner_id, CONCAT(user.first_name, " ", user.last_name) as owner_name
+            borrow.id, borrow.date_out, borrow.date_in, borrow.user_id as borrower_id, borrow.gear_id, gear.name AS gear_name, 
+            gear.description, gear.user_id as owner_id, CONCAT(user.first_name, " ", user.last_name) as owner_name
         FROM borrow
         JOIN gear ON gear.id = borrow.gear_id
         JOIN user ON gear.user_id = user.id

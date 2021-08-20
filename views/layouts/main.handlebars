@@ -22,7 +22,8 @@
   <header class=" p-2">
     <nav class="d-flex justify-content-between">
       <div>
-        <h2>Welcome, {{full_name}}</h2>
+        {{#if gear_page}}<h2>{{full_name}}'s Gear</h2>
+        {{else}}<h2>Welcome, {{full_name}}</h2>{{/if}}
       </div>
       <ul class="nav">
         <li class="nav-item">
@@ -35,7 +36,7 @@
           <a class="nav-link active" aria-current="page" href="#">Sports Gear</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">MyGear</a>
+          <a class="nav-link" href="/api/gear/mygear">MyGear</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Add Gear</a>

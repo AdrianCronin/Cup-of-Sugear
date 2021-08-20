@@ -30,7 +30,13 @@ router.get('/mygear', async (req, res) => {
             }
         });
 
-        res.render('mygear', {gear, borrowedGear});
+        res.render('mygear', {
+            gear, 
+            borrowedGear,
+            logged_in: req.session.logged_in,
+            full_name: req.session.full_name,
+            gear_page: true,
+        });
     } catch (err) {
         res.status(500).json(err);
     };

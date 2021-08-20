@@ -17,7 +17,7 @@
       if (response.ok) {
         document.location.replace('/mygear');
       } else {
-        document.location.replace('/homepage');
+        document.location.replace('/');
       }
     }
   };

@@ -99,26 +99,38 @@ router.post('/logout', async (req, res) => {
 //   };
 // });
 
-// // update user's password put route
-// router.put('/edituser', async (req, res) => {
-//   // try {
-//   // res.json(`Reached path: http://localhost:3001/api/users${req.path} `);
+// update user's password view route
+router.get('/edituser', async (req, res) => {
+  try {
+    res.render('edituser', {
+      logged_in: req.session.logged_in,
 
-//   // req.body.password = await bcrypt.hash(req.body.password, 10);
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  };
+});
 
-//   // console.log('###########updated pass is ', req.body.password);
+// update user's password put route
+router.put('/edituser', async (req, res) => {
+  try {
+    // res.json(`Reached path: http://localhost:3001/api/users${req.path} `);
 
-//   const updatedUserData = await User.update(req.body.password, {
-//     where: {
-//       id: req.session.user_id
-//     }
-//   });
+    // req.body.password = await bcrypt.hash(req.body.password, 10);
 
-//   //   res.status(200).message('Password successfully updated.');
-//   // } catch (err) {
-//   //     res.status(500).json(err);
-//   // };
-// });
+    // console.log('###########updated pass is ', req.body.password);
+
+    const updatedUserData = await User.update(req.body.password, {
+      where: {
+        id: req.session.user_id
+      }
+    });
+
+    res.status(200).message('Password successfully updated.');
+  } catch (err) {
+    res.status(500).json(err);
+  };
+});
 
 // delete user route
 router.delete('/delete/:id', async (req, res) => {

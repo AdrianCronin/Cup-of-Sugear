@@ -17,11 +17,58 @@
 
 <body>
 
+  {{#if logged_in}}
+  {{!-- navbar --}}
+  <header class=" p-2">
+    <nav class="d-flex justify-content-between">
+      <div>
+        {{#if gear_page}}<h2>{{full_name}}'s Gear</h2>{{/if}}
+        {{#if homepage}}<h2>Welcome, {{full_name}}</h2>{{/if}}
+        {{#if browse}}<h2>Browsing {{category}}</h2>{{/if}}
+      </div>
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/api/gear/mygear">MyGear</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/api/users/edituser" id="changePassword">Change Password</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/" id="logout">Logout</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  {{else}}
+  {{!-- logged out navbar --}}
+  <header class=" p-2">
+    <nav class="d-flex justify-content-between align-center">
+      <div>
+        <h2>Need a cup of su<em>Gear</em>?</h2>
+      </div>
+      <ul class="nav ">
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/signup">Sign Up</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  {{/if}}
+
   {{{body}}}
 
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
 </body>
 
 <footer>
 </footer>
-<script src="/js/logout.js"></script>
+
 </html>

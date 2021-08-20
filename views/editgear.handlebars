@@ -1,0 +1,37 @@
+{{!-- edit post form --}}
+<div class="container">
+    <div class="col">
+        <div class="card h-100 bg-dark">
+            <div class="card-header bg-primary">
+                <h4 class="card-title text-white">Edit Gear</h4>
+            </div>
+            <div class="card-body bg-secondary">
+
+                <form id="editGearForm" data-gear_id="{{gear.id}}">
+
+                    <div class="mb-3">
+                        <label for="editGearName" class="form-label text-white">Title</label>
+                        <input type="text" class="form-control" id="editGearName" value="{{gear.name}}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="editGearDescription" class="form-label text-white">Description</label>
+                        <textarea class="form-control" id="editGearDescription" rows="3">{{gear.description}}</textarea>
+                    </div>
+
+                    <select class="form-select mb-3" aria-label="Select Category" id="selectCategory">
+                        {{#each categories as |category|}}
+                        <option value="{{category.id}}">{{category.category}}</option>
+                        {{/each}}
+                    </select>
+
+                    <button class="w-100 btn btn-lg btn-primary mb-1" type="submit">Save</button>
+                </form>
+
+                <button class="w-100 btn btn-lg btn-primary" type="click" id="deleteGearBtn">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/editgear.js"></script>

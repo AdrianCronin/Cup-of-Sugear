@@ -9,8 +9,12 @@ router.get('/', async (req, res) => {
         const categoryData = await Category.findAll();
         const categories = categoryData.map((category) => category.get({ plain: true }));
 
-        // TODO: PASS LOGGED_IN VARIABLE TO HOMEPAGE
-        res.render('homepage', {categories});
+        res.render('homepage', {
+            categories,
+            logged_in: req.session.logged_in,
+            full_name: req.session.full_name,
+            homepage: true
+        });
     } catch (err) {
         res.status(500).json(err);
     };

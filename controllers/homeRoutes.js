@@ -30,6 +30,20 @@ router.get('/login', async (req, res) => {
     };
 });
 
+// login page route
+router.get('/edituser', async (req, res) => {
+    try {
+        // res.json(`Reached path: http://localhost:3001${req.path} `);
+        if (!req.session.logged_in) {
+            res.redirect('/login');
+            return;
+          }
+        res.render('edituser');
+    } catch (err) {
+        res.status(500).json(err);
+    };
+});
+
 // signup page route
 router.get('/signup', async (req, res) => {
     try {

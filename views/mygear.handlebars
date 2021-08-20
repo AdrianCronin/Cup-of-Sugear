@@ -1,3 +1,46 @@
+{{!-- add gear button --}}
+<!-- Click on Modal Button -->
+<button type="button" class="btn btn-primary mx-auto d-block mt-5" data-bs-toggle="modal" data-bs-target="#addGearForm">
+    Add Gear
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="addGearForm" tabindex="-1" aria-labelledby="addGearModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="addGearModal">Add Gear Form</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form id="addGearSubmit">
+                    <div class="mb-3">
+                        <label class="form-label">Gear Name:</label>
+                        <input type="text" class="form-control" id="gearName" name="gearName" placeholder="Item" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Description</label>
+                        <input type="text" class="form-control" id="gearDescription" name="gearDescription"
+                            placeholder="Description" />
+                    </div>
+
+                    <select class="form-select mb-3" aria-label="Select Category" id="selectCategory">
+                        {{#each categories as |category|}}
+                        <option value="{{category.id}}">{{category.category}}</option>
+                        {{/each}}
+                    </select>
+
+                    <button type="submit" class="btn btn-primary float-end">Add</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
 {{!-- my gear container --}}
 <h2 class="text-primary m-2">My Gear</h2>
 <div class="container container-fluid mt-5">
@@ -25,7 +68,7 @@
 <h2 class="text-primary m-2">Borrowing Items</h2>
 <div class="container container-fluid mt-5 ">
     <div class="d-flx flex-wrap row">
-    {{#each borrowedGear as |gear|}}
+        {{#each borrowedGear as |gear|}}
         <div class="card col-3 border-primary m-2">
             <h3>Item: {{gear.gear_name}}</h3>
             <p>Description: {{gear.description}}</p>
@@ -33,6 +76,8 @@
             <p>Owner: {{gear.owner_name}}</p>
             <a>Return Item</a>
         </div>
-    {{/each}}
+        {{/each}}
     </div>
 </div>
+
+<script src="/js/newGear.js"></script>

@@ -1,18 +1,19 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const { Gear, Borrow } = require('../../models');
+const { Gear, Borrow, Category } = require('../../models');
 
 // find all gear for a user simulating logic using random generated user id
-// TODO: add logic that finds the currently signed in user's gear
 router.get('/mygear', async (req, res) => {
     try {
         const user_id = req.session.user_id;
+
         // get all gear for the current user
         const gearData = await Gear.findAll({
             where: { user_id: user_id }
         });
         const gear = gearData.map((item) => item.get({ plain: true }));
 
+        // get all gear current user is borrowing
         const borrowedResults = await sequelize.query(`
         SELECT 
             borrow.id, borrow.date_out, borrow.date_in, borrow.user_id as borrower_id, borrow.gear_id, gear.name AS gear_name, 
@@ -23,6 +24,7 @@ router.get('/mygear', async (req, res) => {
         ORDER BY borrow.id;
         `);
 
+        // save only logged in user's borrowed gear
         let borrowedGear = [];
         borrowedResults[0].forEach(element => {
             if (element.borrower_id === user_id) {
@@ -30,9 +32,14 @@ router.get('/mygear', async (req, res) => {
             }
         });
 
+        // get categories to use in add gear form
+        const categoryData = await Category.findAll();
+        const categories = categoryData.map((category) => category.get({ plain: true }));
+
         res.render('mygear', {
-            gear, 
+            gear,
             borrowedGear,
+            categories,
             logged_in: req.session.logged_in,
             full_name: req.session.full_name,
             gear_page: true,
@@ -80,5 +87,20 @@ router.delete('/delete/:id', async (req, res) => {
         res.status(500).json(err);
     };
 });
+
+// add gear
+router.post('/create', async (req, res) => {
+    try {
+        const newGear = await Gear.create({
+            ...req.body,
+            user_id: req.session.user_id,
+        });
+        res.status(200).json(newGear);
+
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 
 module.exports = router;

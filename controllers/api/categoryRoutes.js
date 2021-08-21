@@ -29,6 +29,7 @@ router.get('/:id', async (req, res) => {
         res.render('browse', {
             gear,
             logged_in: req.session.logged_in,
+            user_id: req.session.user_id,
             browse: true,
             category: gear[0].category.category
         });

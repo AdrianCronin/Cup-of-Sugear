@@ -13,6 +13,7 @@
     {{!-- category box template --}}
     {{#each categories as |category|}}
     <div class="card col-3 m-2">
+      <img src="/img/cat-{{category.category}}.jpg" class="card-img-top" alt="...">
       <a href="/api/categories/{{category.id}}" class="text-decoration-none text-center">
         <h3>{{category.category}}</h3>
         <p>description</p>

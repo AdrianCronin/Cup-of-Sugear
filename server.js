@@ -5,6 +5,9 @@ const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 // const helpers = require('./utils/helpers');
 
+//ADD DATEPICKER
+// const datepicker = require('js-datepicker');
+
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 

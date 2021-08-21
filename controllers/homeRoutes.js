@@ -62,6 +62,9 @@ router.get('/signup', async (req, res) => {
     };
 });
 
-
+//TEMP ROUTE TO GO TO GEAR CHECKOUT FORM
+router.get('/gearcheckout', async (req, res) => {
+    res.render('gearcheckout');
+});
 
 module.exports = router;

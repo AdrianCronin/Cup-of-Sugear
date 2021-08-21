@@ -1,6 +1,6 @@
 {{!-- add gear button --}}
 <!-- Click on Modal Button -->
-<button type="button" class="btn btn-primary mx-auto d-block mt-5" data-bs-toggle="modal" data-bs-target="#addGearForm">
+<button type="button" class="btn mx-auto d-block mt-5" id="addgear" data-bs-toggle="modal" data-bs-target="#addGearForm">
     Add Gear
 </button>
 
@@ -41,13 +41,13 @@
 </div>
 
 {{!-- my gear container --}}
-<h2 class="text-primary m-2">My Gear</h2>
+<h2 class="heading m-2">My Gear</h2>
 <div class="container container-fluid mt-5">
     <div class="d-flx flex-wrap row">
 
         {{!-- gear card template --}}
         {{#each gear as |item|}}
-        <div class="card col-3 border-primary m-2">
+        <div class="card col-3 m-2">
             <div class="card-body">
                 <h3>{{item.name}}</h3>
                 <p>{{item.description}}</p>
@@ -64,11 +64,11 @@
 <br>
 
 {{!-- Borrowed Gear --}}
-<h2 class="text-primary m-2">Borrowing Items</h2>
+<h2 class="heading m-2">Borrowing Items</h2>
 <div class="container container-fluid mt-5 ">
     <div class="d-flx flex-wrap row">
         {{#each borrowedGear as |gear|}}
-        <div class="card col-3 border-primary m-2">
+        <div class="card col-3 m-2">
             <h3>Item: {{gear.gear_name}}</h3>
             <p>Description: {{gear.description}}</p>
             <p>Due date: </p>

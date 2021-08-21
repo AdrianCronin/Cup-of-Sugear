@@ -14,11 +14,6 @@ const withAuth = require('../../Utils/auth');
 router.get('/:id', withAuth, async (req, res) => {
     try {
         // res.json(`Reached path: http://localhost:3001/api/borrow${req.path} `);
-        // if (req.session.logged_in) {
-        //     res.redirect('/dashboard');
-        //     return;
-        //   }
-
         // find the gear item
         const gearData = await Gear.findByPk(req.params.id);
         const gear = gearData.get({ plain: true });
@@ -39,7 +34,8 @@ router.get('/:id', withAuth, async (req, res) => {
 router.post('/new', async (req, res) => {
     try {
         const newBorrow = await Borrow.create({
-            ...req.body,
+            user_id: req.body.user_id,
+            gear_id: req.body.gear_id
         });
 
         res.status(200).json(newBorrow);
@@ -48,5 +44,21 @@ router.post('/new', async (req, res) => {
     };
 });
 
+// return item route
+router.get('/return/:id', withAuth, async (req, res) => {
+    try {
+
+        const borrowData = await Borrow.destroy({
+            where: {
+                gear_id: req.params.id,
+            }
+        });
+
+        res.redirect('/api/gear/mygear');
+
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
 
 module.exports = router;

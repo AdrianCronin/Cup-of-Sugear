@@ -31,20 +31,7 @@ router.get('/mygear', async (req, res) => {
                 borrowedGear.push(element);
             }
         });
-
-        // // get names of people borrowing from user
-        // const borrowerResults = await sequelize.query(`
-        //     SELECT borrow.*, CONCAT(user.first_name, " ", user.last_name) as borrower_name
-        //     FROM borrow
-        //     JOIN user
-        //     ON borrow.user_id = user.id; 
-        // `);
-        // console.log(borrowerResults[0]);
-        // const borrowers = []
-        // borrowerResults[0].forEach(element => {
-        //     // if(element.
-        // });
-        // console.log(borrowers);
+        console.log(borrowedGear);
 
         // get categories to use in add gear form
         const categoryData = await Category.findAll();

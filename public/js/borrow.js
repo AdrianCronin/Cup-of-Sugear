@@ -6,7 +6,7 @@ const borrowGearHandler = async (event) => {
 
     const response = await fetch(`/api/borrow/new`, {
         method: 'POST',
-        body: JSON.stringify({ borrower_id: user_id, gear_id,}),
+        body: JSON.stringify({ user_id: user_id, gear_id: gear_id,}),
         headers: {
             'Content-Type': 'application/json',
         },

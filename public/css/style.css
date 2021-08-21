@@ -1,11 +1,11 @@
 
 :root {
-    --Navy: #00296bff;
+    --Navy: rgb(29, 53, 94);
     /* --cornflower-dk: #003f88ff; */
     /* --blue-mod: #00509dff; */
-    /* --yellow-med: #fdc500ff;  */
-    --yellow: rgb(255, 217, 29);
-    --accent: rgb(87, 129, 76);
+    /* --yellow-med: #fdc500ff; */
+    --yellow: rgb(255, 223, 61);
+    --accent: rgb(58, 85, 51);
     }
     
 .hero {
@@ -13,17 +13,11 @@
     background-color: var(--yellow);
     padding: 2%;
 }
-
-h2,h3{
-    color: var(--Navy);
+#addgearbtn, #editBtn, .formBtn{
+    color: white;
+    background-color: var(--Navy);
 }
-.nav-link{
-    color: var(--Navy);
-}
-.nav-link:hover {
-    background-color: var(--yellow);
-}
-a p{
+h2,h3, .nav-link, a p{
     color: var(--Navy);
 }
 .heading{
@@ -37,7 +31,4 @@ a p{
 .card{
     border-color: var(--accent);
 }
-#addgear{
-    color: white;
-    background-color: var(--Navy);
-}
+

@@ -26,7 +26,7 @@ h2,h3, .nav-link, a p{
     padding-left: 5px;
 }
 .cat-img {
-    background-image: url('/Public/img/cat-sports.jpg');
+    background-image: url('/img/cat-sports.jpg');
 }
 .card{
     border-color: var(--accent);

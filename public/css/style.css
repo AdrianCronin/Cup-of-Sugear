@@ -3,7 +3,7 @@
     --Navy: #00296bff;
     /* --cornflower-dk: #003f88ff; */
     /* --blue-mod: #00509dff; */
-    /* --yellow-med: #fdc500ff; */
+    /* --yellow-med: #fdc500ff;  */
     --yellow: rgb(255, 217, 29);
     --accent: rgb(87, 129, 76);
     }
@@ -20,6 +20,9 @@ h2,h3{
 .nav-link{
     color: var(--Navy);
 }
+.nav-link:hover {
+    background-color: var(--yellow);
+}
 a p{
     color: var(--Navy);
 }
@@ -27,6 +30,9 @@ a p{
     background-color: var(--yellow);
     height: 45px;
     padding-left: 5px;
+}
+.cat-img {
+    background-image: url('/Public/img/cat-sports.jpg');
 }
 .card{
     border-color: var(--accent);

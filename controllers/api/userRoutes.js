@@ -114,20 +114,8 @@ router.get('/edituser', async (req, res) => {
 // update user's password put route
 router.put('/edituser', async (req, res) => {
   try {
-    // res.json(`Reached path: http://localhost:3001/api/users${req.path} `);
-
-    // req.body.password = await bcrypt.hash(req.body.password, 10);
-    // console.log('###########updated pass is ', req.body.password);
-
     const user = await User.findByPk(req.session.user_id);
     await user.update(req.body);
-
-    // const updatedUserData = await User.update(req.body, {
-    //   where: {
-    //     id: req.session.user_id
-    //   }
-    // });
-
     res.status(200).message('Password successfully updated.');
   } catch (err) {
     res.status(500).json(err);
@@ -138,7 +126,6 @@ router.put('/edituser', async (req, res) => {
 router.delete('/delete/:id', async (req, res) => {
   try {
     res.json(`Path: http://localhost:3001/api/users${req.path}. Access denied.`);
-
   } catch (err) {
     res.status(500).json(err);
   };

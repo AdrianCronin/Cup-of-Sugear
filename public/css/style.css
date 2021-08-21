@@ -28,6 +28,9 @@ h2,h3, .nav-link, a p{
 .cat-img {
     background-image: url('/img/cat-sports.jpg');
 }
+.nav-link:hover {
+    background-color: var(--yellow);
+}
 .card{
     border-color: var(--accent);
 }

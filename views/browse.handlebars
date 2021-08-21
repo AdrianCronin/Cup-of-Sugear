@@ -1,0 +1,20 @@
+{{!-- gear card container --}}
+<div class="heading"></div>
+<div class="container mt-3">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    {{!-- gear card template --}}
+    {{#each gear as |item|}}
+    <div class="col">
+      <div class="card cat-img">
+        <div class="card-body">
+          <h5 class="card-title">{{item.name}}</h5>
+          <p class="card-text">Description: {{item.description}}</p>
+          <p>Due Date:</p>
+          <button>Checkout</button>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+
+  </div>
+</div>

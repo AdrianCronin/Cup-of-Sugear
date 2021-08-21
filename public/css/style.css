@@ -1,6 +1,16 @@
+
+:root {
+    --Navy: rgb(29, 53, 94);
+    /* --cornflower-dk: #003f88ff; */
+    /* --blue-mod: #00509dff; */
+    /* --yellow-med: #fdc500ff; */
+    --yellow: rgb(255, 223, 61);
+    --accent: rgb(58, 85, 51);
+    }
+    
 .hero {
-    height: 50vh;
-    background-color: aquamarine;
+    /* height: 30vh; */
+    background-color: var(--yellow);
     padding: 2%;
 }
 

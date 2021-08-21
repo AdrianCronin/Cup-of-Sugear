@@ -1,88 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./public/css/style.css">
+  <!--need stylesheet-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+ <title>Cup of Sugar</title>
 </head>
 <body>
-    <ul class="nav d-flex justify-content-between ">
-      <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-          <form class="d-flex">
-            <input class="form-control me-2 border-primary " type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
-        </div>
-      </nav>
-        <li class="nav-item">
-          <a class="nav-link fs-2" href="#">Add Gear</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Browse</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Log out</a>
-        </li>
-
+  <nav class="d-flex justify-content-end">
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Add Gear</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Browse</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link fs-2" href="/api/user/edituser">Change Password</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Logout</a>
+      </li>
     </ul>
-    <h2 class="text-primary">My Gear</h2>
-    <main class="container container-fluid mt-5">
-      <div class="d-flx flex-wrap row">
-        <div class="card col-3 border-primary">
-          <h3>Item</h3>
-          <p>Description: </p>
-          <p>Due date: </p>
-          <p>Edit Item</p>
-        </div>
-        <div class="card col-3 border-primary">
-          <h3>Item</h3>
-          <p>Description: </p>
-          <p>Due date: </p>
-          <p>Edit Item</p>
-        </div>
-        <div class="card col-3 border-primary">
-          <h3>Item</h3>
-          <p>Description: </p>
-          <p>Due date: </p>
-          <p>Edit Item</p>
-        </div>
-        
+  </nav>
+
+  <h2 class="text-primary m-2">My Gear</h2>
+  <main class="container container-fluid mt-5">
+    <div class="d-flx flex-wrap row">
+      <div class="card col-3 border-primary m-2">
+        <h3>Item</h3>
+        <p>Description: </p>
+        <p>Due date: </p>
+        <p>Borrower: Name</p>
+        <a>Edit Item</a>
+        <a>Delete</a>
       </div>
-    </main>
-    <br>
-    <h3 class="text-primary">Borrowing Items</h3>
-    <main class="container container-fluid mt-5 ">
-      <div class="d-flx flex-wrap row">
-        <div class="card col-3 border-primary">
-          <h3>Item</h3>
-          <p>Description: </p>
-          <p>Due date: </p>
-          <p>Return Item</p>
-        </div>
-        <div class="card col-3 border-primary">
-          <h3>Item</h3>
-          <p>Description: </p>
-          <p>Due date: </p>
-          <p>Return Item</p>
-        </div>
-        <div class="card col-3 border-primary">
-          <h3>Item</h3>
-          <p>Description: </p>
-          <p>Due date: </p>
-          <p>Return Item</p>
-        </div>
-        
+      <div class="card col-3 border-primary m-2">
+        <h3>Item</h3>
+        <p>Description: </p>
+        <p>Due date: </p> 
+        <p>Borrower: Name</p>
+        <a>Edit Item</a>
+        <a>Delete</a>
       </div>
-    </main>
-    <br>
-    <footer class="max-height: 100%">
-      <div class="bg-success p-2 text-white">Informations</div>
-      <div class="bg-success p-2 text-white">Informations</div>
-      <div class="bg-success p-2 text-white">Informations</div>
-      <div class="bg-success p-2 text-white">Informations</div>
-    </footer>
+      <div class="card col-3 border-primary m-2">
+        <h3>Item</h3>
+        <p>Description: </p>
+        <p>Due date: </p>
+        <p>Borrower: Name</p>
+        <a>Edit Item</a>
+        <a>Delete</a>
+      </div>
+      <div class="card col-3 border-primary m-2">
+        <h3>Item</h3>
+        <p>Description: </p>
+        <p>Due date: </p>
+        <p>Borrower: Name</p>
+        <a>Edit Item</a>
+        <a>Delete</a>
+      </div>
+    </div>
+  </main>
+  <br>
+  <h2 class="text-primary m-2">Borrowing Items</h2>
+  <main class="container container-fluid mt-5 ">
+    <div class="d-flx flex-wrap row">
+      <div class="card col-3 border-primary m-2">
+        <h3>Item</h3>
+        <p>Description: </p>
+        <p>Due date: </p>
+        <p>Owner: Name</p>
+        <a>Return Item</a>
+      </div>
+      <div class="card col-3 border-primary m-2">
+        <h3>Item</h3>
+        <p>Description: </p>
+        <p>Due date: </p> 
+        <p>Owner: Name</p>
+        <a>Return Item</a>
+      </div>
+      <div class="card col-3 border-primary m-2">
+        <h3>Item</h3>
+        <p>Description: </p>
+        <p>Due date: </p>
+        <p>Owner: Name</p>
+        <a>Return Item</a>
+      </div>
+      <div class="card col-3 border-primary m-2">
+        <h3>Item</h3>
+        <p>Description: </p>
+        <p>Due date: </p>
+        <p>Owner: Name</p>
+        <a>Return Item</a>
+      </div>
+    </div>
+  </main>
+  <br>
+  <footer>
+  </footer>
 </body>
+
 </html>

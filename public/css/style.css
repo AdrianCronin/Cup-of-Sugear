@@ -34,4 +34,9 @@ h2,h3, .nav-link, a p{
 .card{
     border-color: var(--accent);
 }
+#loginBtn, #signupBtn{
+    margin-top: .5em;
+    background-color: var(--Navy);
+    color: white;
+}
 

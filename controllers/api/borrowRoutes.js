@@ -33,6 +33,9 @@ router.get('/:id', withAuth, async (req, res) => {
 // borrow item post route
 router.post('/new', async (req, res) => {
     try {
+        
+
+
         const newBorrow = await Borrow.create({
             user_id: req.body.user_id,
             gear_id: req.body.gear_id

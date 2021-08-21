@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const { Gear, Borrow, Category } = require('../../models');
+const { Gear, Borrow, Category } = require('../../Models');
 
 // find all gear for a user simulating logic using random generated user id
 router.get('/mygear', async (req, res) => {

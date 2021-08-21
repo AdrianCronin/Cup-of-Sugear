@@ -1,4 +1,4 @@
-const { models, Category } = require('../models');
+const { models, Category } = require('../Models');
 const router = require('express').Router();
 const withAuth = require('../Utils/auth');
 

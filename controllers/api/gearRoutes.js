@@ -8,10 +8,10 @@ router.get('/mygear', async (req, res) => {
         const user_id = req.session.user_id;
 
         // get all gear for the current user
-        const gearData = await Gear.findAll({
+        const myGearData = await Gear.findAll({
             where: { user_id: user_id }
         });
-        const gear = gearData.map((item) => item.get({ plain: true }));
+        const myGear = myGearData.map((item) => item.get({ plain: true }));
 
         // get all gear current user is borrowing
         const borrowedResults = await sequelize.query(`
@@ -25,19 +25,33 @@ router.get('/mygear', async (req, res) => {
         `);
 
         // save only logged in user's borrowed gear
-        let borrowedGear = [];
+        const borrowedGear = [];
         borrowedResults[0].forEach(element => {
             if (element.borrower_id === user_id) {
                 borrowedGear.push(element);
             }
         });
 
+        // get names of people borrowing from user
+        const borrowerResults = await sequelize.query(`
+            SELECT borrow.*, CONCAT(user.first_name, " ", user.last_name) as borrower_name
+            FROM borrow
+            JOIN user
+            ON borrow.user_id = user.id; 
+        `);
+        console.log(borrowerResults[0]);
+        const borrowers = []
+        borrowerResults[0].forEach(element => {
+            // if(element.
+        });
+        console.log(borrowers);
+
         // get categories to use in add gear form
         const categoryData = await Category.findAll();
         const categories = categoryData.map((category) => category.get({ plain: true }));
 
         res.render('mygear', {
-            gear,
+            gear: myGear,
             borrowedGear,
             categories,
             logged_in: req.session.logged_in,

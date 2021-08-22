@@ -33,7 +33,6 @@ router.get('/mygear', withAuth, async (req, res) => {
                 borrowedGear.push(element);
             }
         });
-        console.log(borrowedGear);
 
         // get categories to use in add gear form
         const categoryData = await Category.findAll();

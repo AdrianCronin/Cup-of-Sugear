@@ -46,8 +46,6 @@ router.get('/mygear', withAuth, async (req, res) => {
         const categoryData = await Category.findAll();
         const categories = categoryData.map((category) => category.get({ plain: true }));
 
-        console.log(`\n\n${JSON.stringify(myGearData[0])}\n\n`);
-
         res.render('mygear', {
             gear: myGearData[0],
             borrowedGear,

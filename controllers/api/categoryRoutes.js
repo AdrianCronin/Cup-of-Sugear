@@ -26,6 +26,8 @@ router.get('/:id', async (req, res) => {
         const categoryData = await Category.findByPk(req.params.id);
         const category = categoryData.get({ plain: true });
 
+        console.log(JSON.stringify(gear))
+
         res.render('browse', {
             gear,
             logged_in: req.session.logged_in,

@@ -10,15 +10,22 @@ router.get('/mygear', withAuth, async (req, res) => {
         const user_id = req.session.user_id;
 
         // get all gear for the current user
-        const myGearData = await Gear.findAll({
-            where: { user_id: user_id }
-        });
-        const myGear = myGearData.map((item) => item.get({ plain: true }));
+        const myGearData = await sequelize.query(`
+        SELECT gear.id, gear.name, gear.description, gear.user_id AS owner_id, gear.category_id,
+            borrow.user_id AS borrower_id, CONCAT(u1.first_name, " ", u1.last_name) as borrower_name, borrow.created_at AS borrow_date
+        FROM gear
+        LEFT JOIN borrow
+        ON borrow.gear_id = gear.id
+        JOIN user u1
+        ON borrow.user_id = u1.id
+        WHERE gear.user_id = 4;
+
+        `);
 
         // get all gear current user is borrowing
         const borrowedResults = await sequelize.query(`
         SELECT 
-            borrow.id, borrow.user_id as borrower_id, borrow.gear_id, gear.name AS gear_name, 
+            borrow.id, borrow.created_at AS borrow_date, borrow.user_id as borrower_id, borrow.gear_id, gear.name AS gear_name, 
             gear.description, gear.user_id as owner_id, CONCAT(user.first_name, " ", user.last_name) as owner_name
         FROM borrow
         JOIN gear ON gear.id = borrow.gear_id
@@ -39,7 +46,7 @@ router.get('/mygear', withAuth, async (req, res) => {
         const categories = categoryData.map((category) => category.get({ plain: true }));
 
         res.render('mygear', {
-            gear: myGear,
+            gear: myGearData[0],
             borrowedGear,
             categories,
             logged_in: req.session.logged_in,

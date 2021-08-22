@@ -1,17 +1,19 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const { Gear, Borrow, Category } = require('../../models');
+const { Gear, Borrow, Category } = require('../../Models');
+const withAuth = require('../../Utils/auth');
+
 
 // find all gear for a user simulating logic using random generated user id
-router.get('/mygear', async (req, res) => {
+router.get('/mygear', withAuth, async (req, res) => {
     try {
         const user_id = req.session.user_id;
 
         // get all gear for the current user
-        const gearData = await Gear.findAll({
+        const myGearData = await Gear.findAll({
             where: { user_id: user_id }
         });
-        const gear = gearData.map((item) => item.get({ plain: true }));
+        const myGear = myGearData.map((item) => item.get({ plain: true }));
 
         // get all gear current user is borrowing
         const borrowedResults = await sequelize.query(`
@@ -25,7 +27,7 @@ router.get('/mygear', async (req, res) => {
         `);
 
         // save only logged in user's borrowed gear
-        let borrowedGear = [];
+        const borrowedGear = [];
         borrowedResults[0].forEach(element => {
             if (element.borrower_id === user_id) {
                 borrowedGear.push(element);
@@ -37,7 +39,7 @@ router.get('/mygear', async (req, res) => {
         const categories = categoryData.map((category) => category.get({ plain: true }));
 
         res.render('mygear', {
-            gear,
+            gear: myGear,
             borrowedGear,
             categories,
             logged_in: req.session.logged_in,
@@ -50,7 +52,7 @@ router.get('/mygear', async (req, res) => {
 });
 
 // find all gear
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     try {
         const gearData = await Gear.findAll();
         const gear = gearData.map((item) => item.get({ plain: true }));
@@ -62,7 +64,7 @@ router.get('/', async (req, res) => {
 });
 
 // find a piece of gear
-router.get('/:id', async (req, res) => {
+router.get('/:id', withAuth, async (req, res) => {
     try {
         res.json(`Reached path: http://localhost:3001/api/gear${req.path} `);
     } catch (err) {
@@ -87,7 +89,7 @@ router.put('/update/:id', async (req, res) => {
 });
 
 // update gear view
-router.get('/update/:id', async (req, res) => {
+router.get('/update/:id', withAuth, async (req, res) => {
     try {
 
         // find the gear item

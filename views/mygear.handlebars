@@ -1,6 +1,7 @@
 {{!-- add gear button --}}
 <!-- Click on Modal Button -->
-<button type="button" class="btn mx-auto d-block mt-5" id="addgearbtn" data-bs-toggle="modal" data-bs-target="#addGearForm">
+<button type="button" class="btn mx-auto d-block mt-5" id="addgearbtn" data-bs-toggle="modal"
+    data-bs-target="#addGearForm">
     Add Gear
 </button>
 
@@ -52,9 +53,9 @@
                 <h3>{{item.name}}</h3>
                 <p>{{item.description}}</p>
                 <p>Due date: </p>
-                <p>Borrower: Name</p>
                 {{!-- edit gear button --}}
-                <a href="/api/gear/update/{{item.id}}"><button id="editBtn" type="button" class="btn btn-secondary">Edit</button></a>
+                <a href="/api/gear/update/{{item.id}}"><button id="editBtn" type="button"
+                        class="btn btn-secondary">Edit</button></a>
             </div>
         </div>
         {{/each}}
@@ -69,11 +70,14 @@
     <div class="d-flx flex-wrap row">
         {{#each borrowedGear as |gear|}}
         <div class="card col-3 m-2">
-            <h3>Item: {{gear.gear_name}}</h3>
-            <p>Description: {{gear.description}}</p>
-            <p>Due date: </p>
-            <p>Owner: {{gear.owner_name}}</p>
-            <a>Return Item</a>
+            <div class="card-body">
+                <h3>Item: {{gear.gear_name}}</h3>
+                <p>Description: {{gear.description}}</p>
+                <p>Due date: </p>
+                <p>Owner: {{gear.owner_name}}</p>
+                <a href="/api/borrow/return/{{gear.gear_id}}"><button type="button" class="btn btn-secondary">Return
+                        Item</button></a>
+            </div>
         </div>
         {{/each}}
     </div>

@@ -5,12 +5,12 @@
     {{!-- gear card template --}}
     {{#each gear as |item|}}
     <div class="col">
-      <div class="card cat-img">
+      <div class="card">
         <div class="card-body">
           <h5 class="card-title">{{item.name}}</h5>
           <p class="card-text">Description: {{item.description}}</p>
           <p>Due Date:</p>
-          <button>Checkout</button>
+          <a href="/api/borrow/{{item.id}}"><button type="button" class="btn btn-outline-primary">Checkout</button></a>
         </div>
       </div>
     </div>

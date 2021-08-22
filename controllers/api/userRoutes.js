@@ -1,10 +1,10 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User } = require('../../Models');
+const withAuth = require('../../Utils/auth');
 
 // Create new user signup Post route
 router.post('/signup', async (req, res) => {
   try {
-    // res.json(`Reached path: http://localhost:3001/api/users${req.path} `);
     // Find the user who matches the posted e-mail address
     const userData = await User.findOne({ where: { email: req.body.email } });
 
@@ -35,7 +35,6 @@ router.post('/signup', async (req, res) => {
 // login post route
 router.post('/login', async (req, res) => {
   try {
-    // res.json(`Reached path: http://localhost:3001/api/users${req.path} `);
     // Find the user who matches the posted e-mail address
     const userData = await User.findOne({ where: { email: req.body.email } });
 
@@ -81,30 +80,11 @@ router.post('/logout', (req, res) => {
   }
 });
 
-// login post route
-router.post('/logout', async (req, res) => {
-  try {
-    res.json(`Reached path: http://localhost:3001/api/users${req.path} `);
-  } catch (err) {
-    res.status(500).json(err);
-  };
-});
-
-// // update user's password put route
-// router.put('/update/:id', async (req, res) => {
-//   try {
-//     res.json(`Reached path: http://localhost:3001/api/users${req.path} `);
-//   } catch (err) {
-//     res.status(500).json(err);
-//   };
-// });
-
 // update user's password view route
-router.get('/edituser', async (req, res) => {
+router.get('/edituser', withAuth, async (req, res) => {
   try {
     res.render('edituser', {
       logged_in: req.session.logged_in,
-
     });
   } catch (err) {
     res.status(500).json(err);

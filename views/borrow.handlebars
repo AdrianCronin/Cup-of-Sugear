@@ -3,12 +3,11 @@
 <div class="container mt-3">
     <div class="row row-cols-1 row-cols-md-3 g-4">
         {{!-- gear card template --}}
-        <div class="col" data-borrower_id="{{user_id}}" data-gear_id="{{gear.id}}" id="borrowGearData">
+        <div class="col" data-borrower_id="{{user_id}}" data-gear_id="{{gear.id}}" data-owner_id="{{gear.user_id}}"id="borrowGearData">
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">{{gear.name}}</h5>
                     <p class="card-text">Description: {{gear.description}}</p>
-                    <p>Due Date:</p>
                     <a href="/api/borrow/{{gear.id}}"><button type="button" class="btn btn-outline-primary"
                             id="borrowConfirmBtn">Confirm</button></a>
                 </div>

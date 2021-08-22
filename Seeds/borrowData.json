@@ -1,36 +1,26 @@
 [
     {
         "id":1,
-        "date_out":"08/12/21",
-        "date_in":"08/26/21",
         "user_id":1,
         "gear_id":1
     },
     {
         "id":2,
-        "date_out":"08/13/21",
-        "date_in":"08/27/21",
         "user_id":1,
         "gear_id":2
     },
     {
         "id":3,
-        "date_out":"08/14/21",
-        "date_in":"08/28/21",
         "user_id":2,
         "gear_id":4
     },
     {
         "id":4,
-        "date_out":"08/14/21",
-        "date_in":"08/28/21",
         "user_id":3,
         "gear_id":8
     },
     {
         "id":5,
-        "date_out":"08/14/21",
-        "date_in":"08/28/21",
         "user_id":4,
         "gear_id":9
     }

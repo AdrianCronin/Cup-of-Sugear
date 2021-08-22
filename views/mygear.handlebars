@@ -50,11 +50,12 @@
         {{#each gear as |item|}}
         <div class="card col-3 m-2">
             <div class="card-body">
-                <h3>{{item.name}}</h3>
-                <p>{{item.description}}</p>
-                <p>Due date: </p>
+                <h3>{{item.gear_name}}</h3>
+                <p>{{item.gear_description}}</p>
+                <p>Borrowed by: {{item.borrower_name}}</p>
+                <p>Borrowed on: {{format_date item.borrow_date}}</p>
                 {{!-- edit gear button --}}
-                <a href="/api/gear/update/{{item.id}}"><button id="editBtn" type="button"
+                <a href="/api/gear/update/{{item.gear_id}}"><button id="editBtn" type="button"
                         class="btn btn-secondary">Edit</button></a>
             </div>
         </div>
@@ -73,7 +74,7 @@
             <div class="card-body">
                 <h3>Item: {{gear.gear_name}}</h3>
                 <p>Description: {{gear.description}}</p>
-                <p>Due date: </p>
+                <p>Due date: {{return_date gear.borrow_date}}</p>
                 <p>Owner: {{gear.owner_name}}</p>
                 <a href="/api/borrow/return/{{gear.gear_id}}"><button type="button" class="btn btn-secondary">Return
                         Item</button></a>

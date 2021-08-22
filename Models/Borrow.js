@@ -12,12 +12,6 @@ Borrow.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    date_out: {
-      type: DataTypes.DATE,
-    },
-    date_in: {
-      type: DataTypes.DATE,
-    },
     // this is the borrower's id
     user_id: {
       type: DataTypes.INTEGER,
@@ -38,7 +32,7 @@ Borrow.init(
   },
   {
     sequelize,
-    timestamps: false,
+    timestamps: true,
     freezeTableName: true,
     underscored: true,
     modelName: 'borrow',

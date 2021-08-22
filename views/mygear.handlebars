@@ -43,21 +43,24 @@
 
 {{!-- my gear container --}}
 <h2 class="heading m-2">My Gear</h2>
-<div class="container container-fluid mt-5">
-    <div class="d-flx flex-wrap row">
+<div class="container mt-3">
+    <div class="row row-cols-1 row-cols-md-3 g-4 ">
 
         {{!-- gear card template --}}
         {{#each gear as |item|}}
-        <div class="card col-3 m-2">
-            <div class="card-body">
-                <h3>{{item.gear_name}}</h3>
-                <p>{{item.gear_description}}</p>
-                <p>Borrowed by: {{item.borrower_name}}</p>
-                <p>Borrowed on: {{format_date item.borrow_date}}</p>
-                {{!-- edit gear button --}}
-                <a href="/api/gear/update/{{item.gear_id}}"><button id="editBtn" type="button"
-                        class="btn btn-secondary">Edit</button></a>
+        <div class="col">
+
+            <div class="card border-dark mb-3" style="max-width: 18rem;">
+                <h5 class="card-header">{{item.gear_name}}</h5>
+                <div class="card-body">
+                    <p class="card-text">{{item.gear_description}}</p>
+                    <p class="card-text">Borrowed by: {{item.borrower_name}}</p>
+                    <p class="card-text">Borrowed on: {{format_date item.borrow_date}}</p>
+                    <a href="/api/gear/update/{{item.gear_id}}"><button id="editBtn" type="button"
+                            class="btn btn-outline-secondary">Edit</button></a>
+                </div>
             </div>
+
         </div>
         {{/each}}
     </div>

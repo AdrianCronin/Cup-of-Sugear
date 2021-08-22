@@ -50,8 +50,8 @@
         {{#each gear as |item|}}
         <div class="card col-3 m-2">
             <div class="card-body">
-                <h3>{{item.name}}</h3>
-                <p>{{item.description}}</p>
+                <h3>{{item.gear_name}}</h3>
+                <p>{{item.gear_description}}</p>
                 <p>Borrowed by: {{item.borrower_name}}</p>
                 <p>Borrowed on: {{format_date item.borrow_date}}</p>
                 {{!-- edit gear button --}}

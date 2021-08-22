@@ -3,13 +3,6 @@ const sequelize = require('../../config/connection');
 const { Gear, Borrow, Category } = require('../../Models');
 const withAuth = require('../../Utils/auth');
 
-//check out gear to currently logged in user
-
-//id will autofill when Borrow obj created
-//date out is today's date
-//date in will be 2 weeks from today, can use helper obj??
-//gear id will come from submit event on button click
-
 // borrow item view route
 router.get('/:id', withAuth, async (req, res) => {
     try {

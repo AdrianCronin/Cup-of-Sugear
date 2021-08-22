@@ -5,7 +5,6 @@ const withAuth = require('../../Utils/auth');
 // Create new user signup Post route
 router.post('/signup', async (req, res) => {
   try {
-    // res.json(`Reached path: http://localhost:3001/api/users${req.path} `);
     // Find the user who matches the posted e-mail address
     const userData = await User.findOne({ where: { email: req.body.email } });
 
@@ -36,7 +35,6 @@ router.post('/signup', async (req, res) => {
 // login post route
 router.post('/login', async (req, res) => {
   try {
-    // res.json(`Reached path: http://localhost:3001/api/users${req.path} `);
     // Find the user who matches the posted e-mail address
     const userData = await User.findOne({ where: { email: req.body.email } });
 

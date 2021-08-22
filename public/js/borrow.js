@@ -15,7 +15,7 @@ const borrowGearHandler = async (event) => {
     if (response.ok) {
         document.location.replace('/api/gear/mygear');
     } else {
-        alert(response.statusText);
+        alert("This item is already being borrowed");
     }
 };
 

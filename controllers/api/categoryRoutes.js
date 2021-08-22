@@ -8,10 +8,11 @@ router.get('/:id', async (req, res) => {
     try {
         // get all gear items with the borrow table
         const gearResults = await sequelize.query(`
-        SELECT gear.*, borrow.id AS borrow_id
-        FROM gear
-        LEFT JOIN borrow
-        ON borrow.gear_id = gear.id
+            SELECT gear.*, borrow.id AS borrow_id, CONCAT(user.first_name, " ", user.last_name) AS owner_name
+            FROM gear
+            LEFT JOIN borrow
+            ON borrow.gear_id = gear.id
+            LEFT JOIN user ON gear.user_id = user.id
         `);
 
         // make array of items that have no borrow id and match the category

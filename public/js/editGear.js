@@ -18,7 +18,7 @@ const editGearFormHandler = async (event) => {
         if (response.ok) {
             document.location.replace('/api/gear/mygear');
         } else {
-            alert('Failed');
+            alert(response.statusText);
         }
     }
 };
@@ -37,7 +37,7 @@ const deleteGearHandler = async (event) => {
     if (response.ok) {
         document.location.replace('/api/gear/mygear');
     } else {
-        alert('Failed');
+        alert(response.statusText);
     }
 };
 

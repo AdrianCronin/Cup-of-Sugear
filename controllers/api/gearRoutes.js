@@ -42,10 +42,6 @@ router.get('/mygear', withAuth, async (req, res) => {
             }
         });
 
-        console.log(`\n\n${(user_id)}\n\n`)
-        console.log(`\n\n${JSON.stringify(myGearData[0])}\n\n`)
-
-
         // get categories to use in add gear form
         const categoryData = await Category.findAll();
         const categories = categoryData.map((category) => category.get({ plain: true }));

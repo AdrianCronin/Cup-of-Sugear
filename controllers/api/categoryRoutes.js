@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const { Category, Gear } = require('../../Models');
+const withAuth = require('../../Utils/auth');
 
 // find all categories
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     try {
         const categoryData = await Category.findAll();
         const categories = categoryData.map((category) => category.get({ plain: true }));

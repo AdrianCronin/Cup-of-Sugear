@@ -7,20 +7,20 @@
 </div>
 
 {{!-- category container --}}
-<main class="container container-fluid mt-5">
-  <div class="d-flex flex-wrap row justify-content-between">
+<main class="container mt-3">
+  <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-between">
 
     {{!-- category box template --}}
     {{#each categories as |category|}}
-    <div class="card col-3 m-2">
-      <a href="/api/categories/{{category.id}}" class="text-decoration-none text-center">
-        <img src="/img/cat-{{category.category}}.jpg" class="card-img-top">
-        <h3 class="card-title">{{category.category}}</h3>
-        <p></p>
-      </a>
+    <div class="col">
+      <div class="card mb-3" style="max-width: 18rem;">
+        <a href="/api/categories/{{category.id}}" class="text-decoration-none text-center">
+          <img src="/img/cat-{{category.category}}.jpg" class="card-img-top">
+          <div class="card-body">
+            <h3 class="card-title">{{category.category}}</h3>
+          </div>
+        </a>
+      </div>
     </div>
     {{/each}}
-
-
-
 </main>

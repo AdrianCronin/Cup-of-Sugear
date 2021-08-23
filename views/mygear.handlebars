@@ -54,8 +54,9 @@
                 <h5 class="card-header">{{item.gear_name}}</h5>
                 <div class="card-body">
                     <p class="card-text">{{item.gear_description}}</p>
-                    <p class="card-text">Borrowed by: {{item.borrower_name}}</p>
-                    <p class="card-text">Borrowed on: {{format_date item.borrow_date}}</p>
+                    {{#if item.borrower_name}}<p class="card-text">Borrowed by: {{item.borrower_name}}</p>{{/if}}
+                    {{#if item.borrow_date}}<p class="card-text">Borrowed on: {{format_date item.borrow_date}}</p>
+                    <p class="card-text">Due date: {{return_date item.borrow_date}}</p>{{/if}}
                     <a href="/api/gear/update/{{item.gear_id}}"><button id="editBtn" type="button"
                             class="btn btn-outline-secondary">Edit</button></a>
                 </div>

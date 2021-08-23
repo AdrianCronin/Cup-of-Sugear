@@ -51,7 +51,7 @@
         <div class="col">
 
             <div class="card border-dark mb-3" style="max-width: 18rem;">
-                <h5 class="card-header">{{item.gear_name}}</h5>
+                <h5 class="card-header"> <img class="card-icon" src={{icon_display item.category_id}} alt="icon" width="32" height="32">{{item.gear_name}}</h5>
                 <div class="card-body">
                     <p class="card-text">{{item.gear_description}}</p>
                     {{#if item.borrower_name}}<p class="card-text">Borrowed by: {{item.borrower_name}}</p>{{/if}}

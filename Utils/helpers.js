@@ -14,5 +14,16 @@ module.exports = {
     returnDate.setDate(returnDate.getDate() + 14);
     return returnDate.toDateString();
   },
+  icon_display: (category) => {
+    if(category === 1) {
+      return "/img/icon_home.png";
+    }
+    else if (category === 2) {
+      return "/img/icon_sports.png";
+    }
+    else {
+      return "/img/icon_lawn.png";
+    }
+  }
 };
 

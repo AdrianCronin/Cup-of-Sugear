@@ -70,7 +70,7 @@
 <br>
 
 {{!-- Borrowed Gear --}}
-<h2 class="heading m-2">Borrowing Items</h2>
+<h2 class="heading m-2">Borrowed Items</h2>
 <div class="container mt-3">
     <div class="row row-cols-1 row-cols-md-3 g-4 ">
 
@@ -80,7 +80,7 @@
             <div class="card border-dark mb-3" style="max-width: 18rem;">
                 <h5 class="card-header">{{gear.gear_name}}</h5>
                 <div class="card-body">
-                    <p class="card-text">Description: {{gear.description}}</p>
+                    <p class="card-text">{{gear.description}}</p>
                     <p class="card-text">Due date: {{return_date gear.borrow_date}}</p>
                     <p class="card-text">Owner: {{gear.owner_name}}</p>
                     <a href="/api/borrow/return/{{gear.gear_id}}"><button type="button" class="btn btn-secondary">Return
